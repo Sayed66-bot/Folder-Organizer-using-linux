@@ -2,10 +2,13 @@
 
 A lightweight Linux automation script that organizes files into folders based on their file extensions. Ideal for keeping directories clean and maintaining a structured workspace.
 
+
 📘 Project Overview
 
 A Bash script that scans a directory, identifies file types by extension, and moves them into categorized folders.
 Files without extensions are placed inside an others/ directory.
+
+
 
 🎯 Project Details
 
@@ -21,10 +24,14 @@ Prevents duplicate folders
 
 Safe, simple, and fast
 
+
+
 👨‍💻 Developer
 
 Md Sayed
 Creator & Maintainer of this project.
+
+
 
 🚀 Features
 
@@ -38,9 +45,13 @@ Safely moves files into their respective folders
 
 Clear success and progress output
 
+
+
 🔍 Evidence Collection Modules
 
 (Not applicable — included for documentation consistency.)
+
+
 
 📊 Reporting Features
 
@@ -57,6 +68,8 @@ Example Output:
 Moved 'photo.jpg' → 'jpg/'
 Moved 'video.mp4' → 'mp4/'
 Moved 'README' → 'others/'
+
+
 
 🛠 Installation & Setup
 Prerequisites
@@ -79,6 +92,8 @@ chmod +x organizer.sh
 Run it:
 
 ./organizer.sh
+
+
 
 🎮 Usage
 Basic Execution
@@ -105,6 +120,8 @@ pdf/
 mp4/
 others/
 
+
+
 📚 Module Details (Script Breakdown)
 1. Directory Validation
 
@@ -125,6 +142,8 @@ mkdir -p "$ext"
 
 6. File Movement
 mv "$file" "$ext"/
+
+
 
 🗂 Report Features
 Console Report Includes:
@@ -147,6 +166,8 @@ Undo/Reverse mode
 
 (Reserved for future versions—config file not yet included.)
 
+
+
 🎓 Educational Value
 
 This project teaches:
@@ -160,6 +181,8 @@ Conditional logic
 Looping constructs
 
 Automation concepts
+
+
 
 🧑‍🏫 Academic Considerations
 Learning Outcomes
@@ -184,6 +207,8 @@ Add config file support
 
 Add detailed error handling
 
+
+
 ⚠ Important Notes
 
 The script moves files (does not copy).
@@ -192,10 +217,14 @@ Avoid running in system-critical directories (/etc, /usr, /boot).
 
 Test on sample folders if unsure.
 
+
+
 ⚖️ Legal and Ethical Usage
 
 Use this script only in directories where you have permission to modify content.
 The developer is not responsible for data loss resulting from misuse.
+
+
 
 🔒 Limitations
 
@@ -208,6 +237,8 @@ No category-based grouping yet
 Large directories may take extra time
 
 Special characters in filenames may need manual handling
+
+
 
 🐛 Troubleshooting
 1. Permission Denied
@@ -240,6 +271,8 @@ Permission issues
 
 File being open
 
+
+
 ❗ Common Issues
 Files without extensions → go to others/
 
@@ -257,6 +290,8 @@ System folders
 
 Never run inside system-critical directories.
 
+
+
 ❓ FAQ
 
 1. Does it delete files?
@@ -268,6 +303,8 @@ Not yet.
 3. Can it undo the operation?
 Reverse mode is planned for future updates.
 
+
+
 🤝 Contribution Guidelines
 
 Fork the repo
@@ -277,6 +314,8 @@ Create a branch
 Make your changes
 
 Submit a pull request
+
+
 
 📄 License
 
