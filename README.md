@@ -1,170 +1,283 @@
-📁 Linux File Organizer Script
+📁 File Organizer Script (Bash)
 
-A lightweight and efficient Bash script that automatically organizes files inside any directory based on their file extensions. This tool helps you keep folders clean by grouping files into extension-based subdirectories (e.g., jpg/, png/, pdf/, txt/, etc.).
-Files without extensions are placed into an others/ folder.
+A lightweight Linux automation script that organizes files into folders based on their file extensions. Ideal for keeping directories clean and maintaining a structured workspace.
+
+📘 Project Overview
+
+A Bash script that scans a directory, identifies file types by extension, and moves them into categorized folders.
+Files without extensions are placed inside an others/ directory.
+
+🎯 Project Details
+
+Automates file organization
+
+Supports all file types
+
+Works in any directory
+
+Converts extensions to lowercase
+
+Prevents duplicate folders
+
+Safe, simple, and fast
+
+👨‍💻 Developer
+
+Md Sayed
+Creator & Maintainer of this project.
 
 🚀 Features
 
-1.Automatically organizes files by extension
+Automatic detection of file extensions
 
-2.Creates folders dynamically (only when necessary)
+Creates folders based on extension
 
-3.Converts extensions to lowercase for consistency
+Handles uppercase/lowercase extensions
 
-4.Handles files without extensions
+Safely moves files into their respective folders
 
-5.Works on any directory you specify
+Clear success and progress output
 
-6.Safe and beginner-friendly Bash code
+🔍 Evidence Collection Modules
 
-📌 How It Works
+(Not applicable — included for documentation consistency.)
 
-You pass a folder path as an argument
+📊 Reporting Features
 
-./organizer.sh /path/to/folder
+The script outputs:
 
+Each file processed
 
-If no path is given, it uses the current directory.
+Folders created
 
-The script checks if the directory exists.
+Final cleanup summary
 
-It loops through each file in the folder:
+Example Output:
 
-Extracts the file extension
+Moved 'photo.jpg' → 'jpg/'
+Moved 'video.mp4' → 'mp4/'
+Moved 'README' → 'others/'
 
-Converts it to lowercase
-
-Detects files with no extension
-
-Creates a folder with that extension name
-
-Moves the file into that folder
-
-Prints a success message after organizing everything.
-
-📂 Example Directory Before
-document.PDF
-photo.JPG
-script.sh
-report.docx
-README
-video.MP4
-
-📁 Example Directory After Running the Script
-pdf/
-    document.pdf
-jpg/
-    photo.jpg
-sh/
-    script.sh
-docx/
-    report.docx
-others/
-    README
-mp4/
-    video.mp4
-
-🧠 Understanding the Code
-1️⃣ Source Directory Detection
-SOURCE_DIR="${1:-.}"
-
-
-If you provide a directory → it uses that
-
-Otherwise → it uses . (current folder)
-
-2️⃣ Directory Validation
-if [ ! -d "$SOURCE_DIR" ]; then
-    echo "Error: Directory '$SOURCE_DIR' not found!"
-    exit 1
-fi
-
-
-Prevents runtime errors by ensuring the folder exists.
-
-3️⃣ Extracting the Extension
-ext="${file##*.}"
-ext=$(echo "$ext" | tr '[:upper:]' '[:lower:]')
-
-
-${file##*.} extracts the extension
-
-tr converts uppercase letters → lowercase
-
-4️⃣ Detect Files Without Extensions
-if [ "$file" = "$ext" ]; then
-    ext="others"
-fi
-
-
-If filename = extension → means the file has NO extension.
-
-5️⃣ Folder Creation
-mkdir -p "$ext"
-
-
-Creates the directory only if it doesn’t already exist.
-
-6️⃣ Moving Files
-mv "$file" "$ext"/
-
-
-Moves the file into its corresponding extension folder.
-
-▶️ How to Run
-Step 1: Make script executable
-chmod +x organizer.sh
-
-Step 2: Run it
-
-Organize the current directory:
-
-./organizer.sh
-
-
-Organize a specific directory:
-
-./organizer.sh /home/user/Downloads
-
-📜 Full Script
-
-(Optional: You may paste your script here in the README, or link to the file.)
-
-🛠️ Requirements
+🛠 Installation & Setup
+Prerequisites
 
 Linux or macOS
 
 Bash shell
 
-Basic permissions to read/write files
+Read/Write permissions
 
-🧩 Use Cases
+Installation Steps
 
-Cleaning your Downloads folder
+Clone or download the script
 
-Grouping project files by type
+Make the script executable:
 
-Organizing mixed collections of documents, photos, and videos
+chmod +x organizer.sh
 
-Automating repetitive file-management tasks
 
-💡 Improvements You Can Add Later
+Run it:
 
-Ignore directories
+./organizer.sh
 
-Log files to track movements
+🎮 Usage
+Basic Execution
 
-Organize by file type category (Documents/Images/Videos)
+Organize current directory:
 
-Add a reverse option to undo sorting
+./organizer.sh
 
-Add a dry-run mode
+Organize a Specific Folder
+./organizer.sh /path/to/folder
 
-🤝 Contributions
+Expected Output
 
-Contributions, feature requests, and suggestions are welcome!
-Feel free to open an issue or submit a PR.
+Extension-named folders created
+
+Files moved accordingly
+
+Console feedback for each action
+
+Output Structure Example
+jpg/
+txt/
+pdf/
+mp4/
+others/
+
+📚 Module Details (Script Breakdown)
+1. Directory Validation
+
+Ensures the directory exists before execution.
+
+2. Extension Extraction
+ext="${file##*.}"
+
+3. Normalize Extension
+tr '[:upper:]' '[:lower:]'
+
+4. Detect No-Extension Files
+
+Moves them into the others/ folder.
+
+5. Folder Creation
+mkdir -p "$ext"
+
+6. File Movement
+mv "$file" "$ext"/
+
+🗂 Report Features
+Console Report Includes:
+
+Total files processed
+
+Folder creation logs
+
+Movement status
+
+Optional Future Enhancements:
+
+HTML report
+
+JSON logs
+
+Undo/Reverse mode
+
+🔧 Configuration Options
+
+(Reserved for future versions—config file not yet included.)
+
+🎓 Educational Value
+
+This project teaches:
+
+Bash scripting
+
+File handling
+
+Conditional logic
+
+Looping constructs
+
+Automation concepts
+
+🧑‍🏫 Academic Considerations
+Learning Outcomes
+
+Students learn:
+
+Shell scripting practices
+
+Directory automation
+
+Extension parsing
+
+Practical Linux workflows
+
+Potential Enhancements for Grading
+
+Add logging
+
+Add file-category mappings (Images/Docs/Media)
+
+Add config file support
+
+Add detailed error handling
+
+⚠ Important Notes
+
+The script moves files (does not copy).
+
+Avoid running in system-critical directories (/etc, /usr, /boot).
+
+Test on sample folders if unsure.
+
+⚖️ Legal and Ethical Usage
+
+Use this script only in directories where you have permission to modify content.
+The developer is not responsible for data loss resulting from misuse.
+
+🔒 Limitations
+
+Does not scan subdirectories (only top-level files)
+
+Cannot undo operations
+
+No category-based grouping yet
+
+Large directories may take extra time
+
+Special characters in filenames may need manual handling
+
+🐛 Troubleshooting
+1. Permission Denied
+
+Run:
+
+chmod +x organizer.sh
+
+2. Directory Not Found
+
+Ensure the folder path is correct.
+
+3. Files Didn’t Move
+
+Check:
+
+Folder is correct
+
+Script has permission
+
+Directory contains files
+
+4. “mv: cannot move file”
+
+Usually caused by:
+
+Same filename existing in destination
+
+Permission issues
+
+File being open
+
+❗ Common Issues
+Files without extensions → go to others/
+
+This is expected behavior.
+
+Uppercase extensions
+
+Automatically converted to lowercase.
+
+Existing folders
+
+Script safely continues using mkdir -p.
+
+System folders
+
+Never run inside system-critical directories.
+
+❓ FAQ
+
+1. Does it delete files?
+No — it only moves them.
+
+2. Can it organize subfolders?
+Not yet.
+
+3. Can it undo the operation?
+Reverse mode is planned for future updates.
+
+🤝 Contribution Guidelines
+
+Fork the repo
+
+Create a branch
+
+Make your changes
+
+Submit a pull request
 
 📄 License
 
-This project is licensed under the MIT License.
+Licensed under the MIT License.
